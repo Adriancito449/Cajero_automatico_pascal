@@ -21,7 +21,7 @@ var
 	base_datos: array[1..10] of registro;
 	interfaz,nuevo_usa: boolean;
 	opci,oti: string;
-	i,nuevo,new_usa,valor_ingresado,control: integer;
+	i,nuevo,new_usa,valor_ingresado,control,cedula_deposi,l: integer;
 begin
 	nuevo:= 1;
 	interfaz:= false;
@@ -157,13 +157,86 @@ begin
 									end;
 								end;
 							end;
+							writeln('Si no pudo completar accion su usuario o contasena no coincide');
+							Readln();
 							
 						end;
 
 					'2':begin 
+							writeln('Dame tu cedula');
+							Readln(valor_ingresado);
+							For i:= 1 to 10 do
+							begin
+								if base_datos[i].cedula = valor_ingresado  then
+								begin
+									writeln('Dame contrasena');
+									Readln(valor_ingresado);
+									if base_datos[i].contasena = valor_ingresado  then
+									begin
+										Clrscr;
+
+										Repeat
+											
+											writeln('Dame tu Deposito');
+											Readln(valor_ingresado);
+											writeln('Tu Deposito es de: ',valor_ingresado);
+											writeln('(1) SI (0) NO ');
+											Readln(control);
+										until(control = 1);
+										base_datos[i].saldo:= base_datos[i].saldo + valor_ingresado;
+
+									end;
+								end;
+							end;
+
+								writeln('Si no pudo completar accion su usuario o contasena no coincide');
+								Readln();
 
 						end;
 					'3':begin 
+							writeln('Dame tu cedula');
+							Readln(valor_ingresado);
+							For i:= 1 to 10 do
+							begin
+								if base_datos[i].cedula = valor_ingresado  then
+								begin
+									writeln('Dame contrasena');
+									Readln(valor_ingresado);
+									if base_datos[i].contasena = valor_ingresado  then
+									begin
+										Clrscr;
+
+										Repeat
+											
+											writeln('Dame tu Trasferencia');
+											Readln(valor_ingresado);
+											writeln('Tu Deposito es de: ',valor_ingresado);
+											writeln('(1) SI (0) NO ');
+											Readln(control);
+										until(control = 1);
+										base_datos[i].saldo:= base_datos[i].saldo - valor_ingresado;
+										Clrscr;
+										writeln('Dame el numero de la cedula del usuario a Trasferir');
+										Readln(cedula_deposi);
+										For l:= 1 to 10 do 
+										begin 
+											if base_datos[l].cedula = cedula_deposi then
+											begin 
+
+												base_datos[l].saldo:= base_datos[l].saldo + valor_ingresado;
+
+
+											end;
+
+										end;
+
+
+									end;
+								end;
+							end;
+
+							writeln('Si no pudo completar accion su usuario o contasena no coincide');
+							Readln();
 
 						end;
 
