@@ -1,4 +1,4 @@
-program cajero_automata;
+program cajero_automatico;
 
 
 uses crt;
@@ -54,11 +54,11 @@ begin
 	Repeat
 
 		Clrscr;
-		writeln('Selecione 1 para Registrar');
-		writeln('Selecione 2 para Consultar saldo');
-		writeln('Selecione 3 para Retiro/Deposito/Trasferencia');
-		writeln('Selecione 4 para Hitorial Bancario');
-		writeln('Selecione 5 para Salir');
+		writeln('Seleccione 1 para Registrar');
+		writeln('Seleccione 2 para Consultar saldo');
+		writeln('Seleccione 3 para Retiro/Deposito/Trasferencia');
+		writeln('Seleccione 4 para Hitorial Bancario');
+		writeln('Seleccione 5 para Salir');
 
 		Readln(opci);
 
@@ -66,7 +66,7 @@ begin
 
 			'1': begin
 					Clrscr;
-					writeln('Has selecionado la Registrar');
+					writeln('Has seleccionado la Registrar');
 					Readln();
 					Clrscr;
 					For i:= 1 to nuevo do
@@ -88,7 +88,7 @@ begin
 						end;
 					end;
 					writeln('');
-					writeln('Deses ingresar un nuevo usuario 1 si 0 no');
+					writeln('Deseas ingresar un nuevo usuario 1 si 0 no');
 					writeln('');
 					writeln('El limite es 10 usuario en este momento hay registrados ',nuevo);
 					writeln('');
@@ -108,7 +108,7 @@ begin
 			'2':begin
 
 					Clrscr;
-					writeln('Has selecionado la Consultar saldo');
+					writeln('Has seleccionado la Consultar saldo');
 
 					writeln('Dame tu cedula');
 					Readln(valor_ingresado);
@@ -129,12 +129,12 @@ begin
 
 			'3':begin
 					Clrscr;
-					writeln('Has selecionado la Retiro/Deposito/Trasferencia');
+					writeln('Has seleccionado la Retiro/Deposito/Trasferencia');
 					writeln('');
 					writeln('');
-					writeln('Selecione 1 para Retiro');
-					writeln('Selecione 2 para Deposito');
-					writeln('Selecione 3 para Trasferencia');
+					writeln('Seleccione 1 para Retiro');
+					writeln('Seleccione 2 para Deposito');
+					writeln('Seleccione 3 para Trasferencia');
 					Readln(oti);
 					case oti of
 					'1':begin
@@ -165,7 +165,7 @@ begin
 											if valor_ingresado > base_datos[i].saldo then
 											begin
 												control:= 0;
-												writeln('La suma de Retiro se ha exedido');
+												writeln('La suma de Retiro se ha excedido');
 												Readln();
 
 											end;
@@ -241,7 +241,7 @@ begin
 								end;
 							end;
 
-								writeln('Si no pudo completar accion su usuario o contasena no coincide');
+								writeln('Si no pudo completar accion, su usuario o contasena no coincide');
 								Readln();
 
 						end;
@@ -260,7 +260,7 @@ begin
 
 										Repeat
 											
-											writeln('Dame tu Trasferencia');
+											writeln('Dame tu Transferencia');
 											Readln(valor_ingresado);
 											writeln('Tu Deposito es de: ',valor_ingresado);
 											writeln('(1) SI (0) NO ');
@@ -283,7 +283,7 @@ begin
 										until(lala);
 
 										Clrscr;
-										writeln('Dame el numero de la cedula del usuario a Trasferir');
+										writeln('Dame el numero de la cedula del usuario a Transferir');
 										Readln(cedula_deposi);
 										For l:= 1 to 10 do 
 										begin 
@@ -301,7 +301,7 @@ begin
 								end;
 							end;
 
-							writeln('Si no pudo completar accion su usuario o contasena no coincide');
+							writeln('Si no pudo completar accion su usuario o contrasena no coincide');
 							Readln();
 
 						end;
@@ -313,7 +313,7 @@ begin
 
 			'4':begin
 					Clrscr;
-					writeln('Has selecionado la Hitorial');
+					writeln('Has seleccionado Historial');
 					writeln('Dame tu cedula');
 					Readln(valor_ingresado);
 					For i:= 1 to 10 do
@@ -404,7 +404,7 @@ begin
 
 			'5':begin
 				Clrscr;
-				writeln('Has selecionado la Salir');
+				writeln('Has seleccionado la Salir');
 				interfaz:= true;
 				end;
 
