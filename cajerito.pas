@@ -10,7 +10,7 @@ type
 		usuario: string;
 		apellido: string;
 		saldo: integer;
-		contasena: integer;
+		contrasena: integer;
 		movimientos: integer;
 		movimientos_Dato: array[1..50] of string;
 		movimientos_valor: array[1..50] of integer;
@@ -57,7 +57,7 @@ begin
 		writeln('Seleccione 1 para Registrar');
 		writeln('Seleccione 2 para Consultar saldo');
 		writeln('Seleccione 3 para Retiro/Deposito/Trasferencia');
-		writeln('Seleccione 4 para Hitorial Bancario');
+		writeln('Seleccione 4 para Historial Bancario');
 		writeln('Seleccione 5 para Salir');
 
 		Readln(opci);
@@ -66,7 +66,7 @@ begin
 
 			'1': begin
 					Clrscr;
-					writeln('Has seleccionado la Registrar');
+					writeln('Has seleccionado Registrar');
 					Readln();
 					Clrscr;
 					For i:= 1 to nuevo do
@@ -75,14 +75,14 @@ begin
 						if base_datos[i].cedula = 0 then
 						begin
 
-							writeln('Dame nombre de usuario');
+							writeln('Ingrese nombre de usuario');
 							Readln(base_datos[i].usuario);
-							writeln('Dame nombre de apellido');
+							writeln('Ingrese apellido');
 							Readln(base_datos[i].apellido);
-							writeln('Dame nombre de cedula');
+							writeln('Ingrese numero de cedula');
 							Readln(base_datos[i].cedula);
-							writeln('Dame nombre de contasena');
-							Readln(base_datos[i].contasena);
+							writeln('Ingrese contrasena');
+							Readln(base_datos[i].contrasena);
 							Clrscr;
 							writeln('Bienvenido al sistema ',base_datos[i].usuario)
 						end;
@@ -90,7 +90,7 @@ begin
 					writeln('');
 					writeln('Deseas ingresar un nuevo usuario 1 si 0 no');
 					writeln('');
-					writeln('El limite es 10 usuario en este momento hay registrados ',nuevo);
+					writeln('El limite es de 10 usuarios. En este momento hay registrados ',nuevo);
 					writeln('');
 					Readln(new_usa);
 					writeln('');
@@ -108,7 +108,7 @@ begin
 			'2':begin
 
 					Clrscr;
-					writeln('Has seleccionado la Consultar saldo');
+					writeln('Has seleccionado Consultar Saldo');
 
 					writeln('Dame tu cedula');
 					Readln(valor_ingresado);
@@ -118,7 +118,7 @@ begin
 						begin
 							writeln('Dame contrasena');
 							Readln(valor_ingresado);
-							if base_datos[i].contasena = valor_ingresado  then
+							if base_datos[i].contrasena = valor_ingresado  then
 							begin
 								writeln('Su monto de saldo es de: ',base_datos[i].saldo);
 								Readln();
@@ -129,12 +129,12 @@ begin
 
 			'3':begin
 					Clrscr;
-					writeln('Has seleccionado la Retiro/Deposito/Trasferencia');
+					writeln('Has seleccionado la Retiro/Deposito/Transferencia');
 					writeln('');
 					writeln('');
 					writeln('Seleccione 1 para Retiro');
 					writeln('Seleccione 2 para Deposito');
-					writeln('Seleccione 3 para Trasferencia');
+					writeln('Seleccione 3 para Transferencia');
 					Readln(oti);
 					case oti of
 					'1':begin
@@ -146,7 +146,7 @@ begin
 								begin
 									writeln('Dame contrasena');
 									Readln(valor_ingresado);
-									if base_datos[i].contasena = valor_ingresado  then
+									if base_datos[i].contrasena = valor_ingresado  then
 									begin
 										Clrscr;
 										writeln('Los Valores estan delimitados por las siguientes sumas:');
@@ -195,7 +195,7 @@ begin
 									end;
 								end;
 							end;
-							writeln('Si no pudo completar accion su usuario o contasena no coincide');
+							writeln('Si no pudo completar accion su usuario o contrasena no coincide');
 							Readln();
 							
 						end;
@@ -209,7 +209,7 @@ begin
 								begin
 									writeln('Dame contrasena');
 									Readln(valor_ingresado);
-									if base_datos[i].contasena = valor_ingresado  then
+									if base_datos[i].contrasena = valor_ingresado  then
 									begin
 										Clrscr;
 
@@ -241,7 +241,7 @@ begin
 								end;
 							end;
 
-								writeln('Si no pudo completar accion, su usuario o contasena no coincide');
+								writeln('Si no pudo completar accion, su usuario o contrasena no coincide');
 								Readln();
 
 						end;
@@ -254,7 +254,7 @@ begin
 								begin
 									writeln('Dame contrasena');
 									Readln(valor_ingresado);
-									if base_datos[i].contasena = valor_ingresado  then
+									if base_datos[i].contrasena = valor_ingresado  then
 									begin
 										Clrscr;
 
@@ -275,7 +275,7 @@ begin
 											if base_datos[i].movimientos_valor[l] = 0 then
 											begin 
 												
-												base_datos[i].movimientos_Dato[l]:= ' Se ha Trasferido ';
+												base_datos[i].movimientos_Dato[l]:= ' Se ha Transferido ';
 												base_datos[i].movimientos_valor[l]:= base_datos[l].movimientos_valor[l] + valor_ingresado;
 												lala:= true;
 											end;
@@ -301,7 +301,7 @@ begin
 								end;
 							end;
 
-							writeln('Si no pudo completar accion su usuario o contrasena no coincide');
+							writeln('Si no pudo completar la acción, su usuario o contrasena no coincide');
 							Readln();
 
 						end;
@@ -322,7 +322,7 @@ begin
 						begin
 							writeln('Dame contrasena');
 							Readln(valor_ingresado);
-							if base_datos[i].contasena = valor_ingresado  then
+							if base_datos[i].contrasena = valor_ingresado  then
 							begin
 								Clrscr;
 								writeln('Tus movimientos Bancarios son: ',base_datos[i].movimientos);
